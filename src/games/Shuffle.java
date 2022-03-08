@@ -35,7 +35,7 @@ public class Shuffle {
 
 	public void run_infinite(ArrayList<Card> cards) {
 		int times_found = 0;
-		while (!check(cards)) { // run this loop until our condition got satisfied
+		while (!check(cards)) { // run this loop until our condition will get satisfied
 			times_found++;
 			shuffle_cards(cards);
 		}
