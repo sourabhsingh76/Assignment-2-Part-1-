@@ -16,7 +16,8 @@ public class Shuffle {
 			cards.set(i, temp);
 		}
 
-		for (int i = 0; i < players.size(); i++) { // clearing all cards contained by each player so that we can assign them cards again
+		for (int i = 0; i < players.size(); i++) { // clearing all cards contained by each player so that we can assign
+													// them cards again
 			players.get(i).c.clear();
 		}
 
@@ -56,12 +57,8 @@ public class Shuffle {
 
 		for (int i = 0; i < players.size(); i++) { // printing cards contained by each player
 			System.out.print(players.get(i).toString() + " : ");
-			for (int j = 0; j < 13; j++) {
-				System.out.print(players.get(i).c.get(j).toString() + ", ");
-			}
-			System.out.println();
+			System.out.println(players.get(i).getCards().toString() + ", ");
 		}
-
 	}
 
 }
