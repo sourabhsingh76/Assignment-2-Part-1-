@@ -8,9 +8,9 @@ public class Card {
 	public Card(String name, int number) { // Constructor
 		this.name = name;
 		this.number = number;
-		
+
 		this.is_face = false;
-		if (number == 1 || number >= 11) {  //ace and face cards  //consider an ace card as face card
+		if (number == 1 || number >= 11) { // ace and face cards //consider an ace card as face card
 			this.is_face = true;
 		}
 
