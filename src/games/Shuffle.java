@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Shuffle {
 
-	public void shuffle_cards(ArrayList<Card> cards, ArrayList<Player> players) {
+	public void shuffle_cards(ArrayList<Card> cards, ArrayList<Player> players, int num) {
 		Random rand = new Random();
 		for (int i = 0; i < cards.size(); i++) { // shuffling cards
 			int r = i + rand.nextInt(cards.size() - i); // getting value of r in the range from 0 to cards.size()-i
@@ -15,11 +15,14 @@ public class Shuffle {
 			cards.set(r, cards.get(i));
 			cards.set(i, temp);
 		}
-
-		for (int i = 0; i < players.size(); i++) { // clearing all cards contained by each player so that we can assign
-													// them cards again
+		
+		if(num>0) {   //initially players don't have cards so no need to run this for loop initially
+		for (int i = 0; i < players.size(); i++) { // clearing all cards contained by each player so that we can assign them cards again										
 			players.get(i).c.clear();
 		}
+		}
+		
+		
 
 		int k = 0;
 		for (int i = 0; i < 13; i++) { // assign the shuffled cards to each player
@@ -50,14 +53,14 @@ public class Shuffle {
 	public void run(ArrayList<Card> cards, ArrayList<Player> players) {
 		int num = 0;
 		while (!check(players)) { // run this loop until our condition will get satisfied
+			shuffle_cards(cards, players,num);
 			num++;
-			shuffle_cards(cards, players);
 		}
 		System.out.println("No. of times cards got shuffled to satisfy condition: " + num);
 
 		for (int i = 0; i < players.size(); i++) { // printing cards contained by each player
 			System.out.print(players.get(i).toString() + " : ");
-			System.out.println(players.get(i).getCards().toString() + ", ");
+			System.out.println(players.get(i).getCards().toString());
 		}
 	}
 
